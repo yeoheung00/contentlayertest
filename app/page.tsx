@@ -1,10 +1,9 @@
+'use client'
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
-import { getMDXComponent } from "next-contentlayer/hooks";
 
 function PostCard(post: Post) {
-  const Content = getMDXComponent(post.body.code);
 
   return (
     <div className="mb-8">
