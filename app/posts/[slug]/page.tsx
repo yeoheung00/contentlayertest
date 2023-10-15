@@ -3,16 +3,16 @@ import { allPosts } from 'contentlayer/generated'
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import ImageViewer from '@/components/ImageViewer'
 
-export const generateStaticParams = async () => allPosts.map((post) => ({ index: post._raw.flattenedPath }))
+export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: any) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.index)
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
   if (post) return { title: post.title };
   return { title: "err" }
 }
 
-const PostLayout = ({ params }: { params: { index: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.index)
+const PostLayout = ({ params }: { params: { slug: string } }) => {
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
   if (!post) return;
   const Content = getMDXComponent(post.body.code)
 

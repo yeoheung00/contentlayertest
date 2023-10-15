@@ -1,4 +1,4 @@
-const { withContentlayer } = require('next-contentlayer');
+//const { withContentlayer } = require('next-contentlayer');
 
 /** @type {import('next').NextConfig} */
 const NextConfig = {
@@ -7,4 +7,4 @@ const NextConfig = {
   },
 };
 
-module.exports = withContentlayer(NextConfig);
+module.exports = NextConfig;// withContentlayer(NextConfig);
